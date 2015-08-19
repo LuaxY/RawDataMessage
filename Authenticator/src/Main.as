@@ -50,7 +50,7 @@ package
             
             output.writeByte(166);
             output.writeInt(dataToEncrypt.length);
-			output.writeBytes(dataToEncrypt, 0, dataToEncrypt.length);
+            output.writeBytes(dataToEncrypt, 0, dataToEncrypt.length);
         }
         
         private function Authenticator() : void
@@ -77,8 +77,8 @@ package
             
             var credentials:ByteArray = new ByteArray;
             credentials.writeUTF(username);
-			credentials.writeUTF(password);
-			credentials.writeBytes(AESKey, 0, 32);
+            credentials.writeUTF(password);
+            credentials.writeBytes(AESKey, 0, 32);
             
             var vector:Vector.<int> = new Vector.<int>;
             credentials.position = 0;
@@ -89,7 +89,7 @@ package
             }
             
             var im:IdentificationMessage = new IdentificationMessage;
-			im.initIdentificationMessage(version, XmlConfig.getInstance().getEntry("config.lang.current"), vector, serverId, autoSelectServer, false, false, 0, new Vector.<uint>());
+            im.initIdentificationMessage(version, XmlConfig.getInstance().getEntry("config.lang.current"), vector, serverId, autoSelectServer, false, false, 0, new Vector.<uint>());
 			
             ConnectionsHandler.getConnection().send(im);
         }
