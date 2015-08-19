@@ -1,11 +1,11 @@
 package
 {
-    import com.hurlant.crypto.symmetric.ICipher;
     import flash.display.Sprite;
     import flash.utils.ByteArray;
     import __AS3__.vec.Vector;
     import com.ankamagames.jerakine.network.NetworkMessage;
     import com.hurlant.crypto.Crypto;
+    import com.hurlant.crypto.symmetric.CBCMode;
     import com.hurlant.crypto.symmetric.NullPad;
     import com.ankamagames.dofus.BuildInfos;
     import com.ankamagames.jerakine.utils.system.AirScanner;
@@ -18,7 +18,7 @@ package
 
     public class Main extends Sprite 
     {
-        private static var _cypher:ICipher;
+        private static var _cypher:CBCMode;
 
         public function Main() 
         {
@@ -37,7 +37,7 @@ package
                 key.writeByte(i);
             }
            
-            _cypher = Crypto.getCipher("aes-cbc", key, new NullPad);
+            _cypher = Crypto.getCipher("aes-cbc", key, new NullPad) as CBCMode;
             _cypher.IV = key;
         }
         
