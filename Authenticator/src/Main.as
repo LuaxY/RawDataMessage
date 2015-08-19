@@ -23,7 +23,7 @@ package
         public function Main() 
         {
             GenerateKey();
-            NetworkMessage.HASH_FUNCTION = EncryptMessage;
+            NetworkMessage.CRYPT_FUNCTION = EncryptMessage;
             
             Authenticator();
         }
