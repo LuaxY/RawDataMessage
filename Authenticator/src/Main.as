@@ -72,7 +72,7 @@ package
                 BuildInfos.BUILD_PATCH,
                 BuildInfos.BUILD_VERSION.buildType,
                 AirScanner.isStreamingVersion() ? ClientInstallTypeEnum.CLIENT_STREAMING : ClientInstallTypeEnum.CLIENT_BUNDLE,
-                AirScanner.hasAir() ? ClientInstallTypeEnum.CLIENT_AIR : ClientInstallTypeEnum.CLIENT_FLASH
+                0
             );
             
             var credentials:ByteArray = new ByteArray;
