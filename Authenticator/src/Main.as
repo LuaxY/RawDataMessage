@@ -16,18 +16,18 @@ package
     import com.ankamagames.dofus.network.types.version.VersionExtended;
     import com.ankamagames.dofus.network.messages.connection.IdentificationMessage;
 
-    public class Main extends Sprite 
+    public class Main extends Sprite
     {
         private static var _cypher:CBCMode;
 
-        public function Main() 
+        public function Main()
         {
             GenerateKey();
             NetworkMessage.CRYPT_FUNCTION = EncryptMessage;
             
             Authenticator();
         }
-        
+
         private function GenerateKey() : void
         {
             var key:ByteArray = new ByteArray;
@@ -40,7 +40,7 @@ package
             _cypher = Crypto.getCipher("aes-cbc", key, new NullPad) as CBCMode;
             _cypher.IV = key;
         }
-        
+
         public static function EncryptMessage(output:*, data:ByteArray) : void
         {
             var dataToEncrypt:ByteArray = new ByteArray;
@@ -52,7 +52,7 @@ package
             output.writeInt(dataToEncrypt.length);
             output.writeBytes(dataToEncrypt, 0, dataToEncrypt.length);
         }
-        
+
         private function Authenticator() : void
         {
             var username:String = AuthentificationManager.getInstance().loginValidationAction.username;
