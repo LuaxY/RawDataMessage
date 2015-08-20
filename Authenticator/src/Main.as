@@ -60,8 +60,7 @@ package
             var serverId:uint   = AuthentificationManager.getInstance().loginValidationAction.serverId;
             var autoSelectServer:Boolean = AuthentificationManager.getInstance().loginValidationAction.autoSelectServer;
             
-            AuthentificationManager.getInstance().initAESKey();
-            var AESKey:ByteArray = AuthentificationManager.getInstance()._AESKey;
+            var AESKey:ByteArray = AuthentificationManager.getInstance().initAESKey();
             
             var version:VersionExtended = new VersionExtended;
             version.initVersionExtended(
