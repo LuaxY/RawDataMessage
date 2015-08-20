@@ -61,7 +61,7 @@ package
             var autoSelectServer:Boolean = AuthentificationManager.getInstance().loginValidationAction.autoSelectServer;
             
             AuthentificationManager.getInstance().initAESKey();
-            var AESKey:ByteArray = AuthentificationManager.getInstance().AESKey;
+            var AESKey:ByteArray = AuthentificationManager.getInstance()._AESKey;
             
             var version:VersionExtended = new VersionExtended;
             version.initVersionExtended(
